@@ -6,11 +6,19 @@
 /*   By: romachad <romachad@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 07:33:17 by romachad          #+#    #+#             */
-/*   Updated: 2022/10/09 08:15:36 by romachad         ###   ########.fr       */
+/*   Updated: 2022/10/09 19:41:06 by coret            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
+
+void my_mlx_pixel_put(t_fractol *data, int x, int y, int color)
+{
+	char	*dst;
+
+	dst = data->addr + (y * data->line_length + x * (data-> bits_per_pixel / 8));
+	*(unsigned int*)dst = color;
+}
 
 void	mandelbrot(t_fractol *f, int x, int y, double cr, double ci)
 {
@@ -36,7 +44,7 @@ void	mandelbrot(t_fractol *f, int x, int y, double cr, double ci)
 		zi = tmp;
 	}
 	if (flag == 1)
-		mlx_pixel_put(f->mlx, f->win, x, y, 0);
+		my_mlx_pixel_put(f, x, y, 0x00000000);
 	else
-		mlx_pixel_put(f->mlx, f->win, x, y, 0xFFFFFF);
+		my_mlx_pixel_put(f, x, y, 0x00FFFFFF);
 }
