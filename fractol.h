@@ -6,7 +6,7 @@
 /*   By: romachad <romachad@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 07:04:31 by romachad          #+#    #+#             */
-/*   Updated: 2022/10/09 19:22:35 by coret            ###   ########.fr       */
+/*   Updated: 2022/10/13 00:18:08 by romachad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,8 @@ typedef struct s_fractol
 
 void	mandelbrot(t_fractol *f, int x, int y, double cr, double ci);
 void	my_mlx_pixel_put(t_fractol *data, int x, int y, int color);
+int	key_hook(int keycode, t_fractol *f);
+int	mouse_hook(int mousecode, t_fractol *f);
+int	mouse_move(int x, int y, t_fractol *f);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: romachad <romachad@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 07:44:33 by romachad          #+#    #+#             */
-/*   Updated: 2022/10/09 19:40:33 by coret            ###   ########.fr       */
+/*   Updated: 2022/10/13 00:28:06 by romachad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,8 @@ int	main(void)
 	f.addr = mlx_get_data_addr(f.img, &f.bits_per_pixel, &f.line_length, &f.endian);
 	draw_fractal(&f);
 	mlx_put_image_to_window(f.mlx, f.win, f.img, 0, 0);
+	mlx_key_hook(f.win, key_hook, &f);
+	mlx_mouse_hook(f.win, mouse_hook, &f);
+	mlx_hook(f.win, 6, 1L<<6, mouse_move, &vars);
 	mlx_loop(f.mlx);
 }
