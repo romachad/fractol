@@ -6,7 +6,7 @@
 /*   By: romachad <romachad@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 07:44:33 by romachad          #+#    #+#             */
-/*   Updated: 2022/10/13 00:28:06 by romachad         ###   ########.fr       */
+/*   Updated: 2022/10/13 02:01:38 by coret            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,20 @@
 
 void	draw_fractal(t_fractol *f)
 {
-	int	x;
-	int	y;
+//	int	x;
+//	int	y;
 	double	cr;
 	double	ci;
 
-	y = -1;
-	while (++y < HEIGHT)
+	f->Y = -1;
+	while (++f->Y < HEIGHT)
 	{
-		x = -1;
-		while (++x < WIDTH)
+		f->X = -1;
+		while (++f->X < WIDTH)
 		{
-			cr = f->min_r + (((double)x * (f->max_r - f->min_r)) / WIDTH);
-			ci = f->min_i + (((double)y * (f->max_i - f->min_i)) / HEIGHT);
-			mandelbrot(f, x, y, cr, ci);
+			cr = f->min_r + (((double)f->X * (f->max_r - f->min_r)) / WIDTH);
+			ci = f->min_i + (((double)f->Y * (f->max_i - f->min_i)) / HEIGHT);
+			mandelbrot(f, cr, ci);
 			//x++;
 		}
 		//y++;
@@ -50,6 +50,6 @@ int	main(void)
 	mlx_put_image_to_window(f.mlx, f.win, f.img, 0, 0);
 	mlx_key_hook(f.win, key_hook, &f);
 	mlx_mouse_hook(f.win, mouse_hook, &f);
-	mlx_hook(f.win, 6, 1L<<6, mouse_move, &vars);
+	mlx_hook(f.win, 6, 1L<<6, mouse_move, &f);
 	mlx_loop(f.mlx);
 }
