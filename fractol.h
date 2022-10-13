@@ -6,7 +6,7 @@
 /*   By: romachad <romachad@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 07:04:31 by romachad          #+#    #+#             */
-/*   Updated: 2022/10/13 02:10:17 by coret            ###   ########.fr       */
+/*   Updated: 2022/10/13 02:29:16 by coret            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,10 @@ typedef struct s_fractol
 	int	endian;
 	int	X;
 	int	Y;
+	int	start_X;
+	int	start_Y;
+	int	draw_width;
+	int	draw_height;
 	double	min_r;
 	double	max_r;
 	double	min_i;

@@ -6,7 +6,7 @@
 /*   By: romachad <romachad@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 07:33:17 by romachad          #+#    #+#             */
-/*   Updated: 2022/10/13 02:10:09 by coret            ###   ########.fr       */
+/*   Updated: 2022/10/13 02:26:07 by coret            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,25 +18,6 @@ void my_mlx_pixel_put(t_fractol *f, int color)
 
 	dst = f->addr + (f->Y * f->line_length + f->X * (f-> bits_per_pixel / 8));
 	*(unsigned int*)dst = color;
-}
-#include <stdio.h>
-void	draw_change(t_fractol *f, int x, int y)
-{
-	double cr;
-	double ci;
-
-	while (y < HEIGHT)
-	{
-		while (x < WIDTH)
-		{
-			cr = f->min_r + (((double)x * (f->max_r - f->min_r)) / WIDTH);
-			ci = f->min_r + (((double)y * (f->max_i - f->min_i)) / HEIGHT);
-			mandelbrot2(f, x, y, cr, ci);
-			printf("TOMA NO CU!\n\n");
-			x++;
-		}
-		y++;
-	}
 }
 
 void	mandelbrot(t_fractol *f, double cr, double ci)
@@ -66,6 +47,26 @@ void	mandelbrot(t_fractol *f, double cr, double ci)
 		my_mlx_pixel_put(f, 0x00000000);
 	else
 		my_mlx_pixel_put(f, 0x00FFFFFF);
+}
+
+#include <stdio.h>
+void	draw_change(t_fractol *f, int x, int y)
+{
+	double cr;
+	double ci;
+
+	while (y < HEIGHT)
+	{
+		while (x < WIDTH)
+		{
+			cr = f->min_r + (((double)x * (f->max_r - f->min_r)) / WIDTH);
+			ci = f->min_r + (((double)y * (f->max_i - f->min_i)) / HEIGHT);
+			mandelbrot2(f, cr, ci);
+			printf("TOMA NO CU!\n\n");
+			x++;
+		}
+		y++;
+	}
 }
 
 void	mandelbrot2(t_fractol *f, double cr, double ci)
