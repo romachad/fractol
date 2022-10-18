@@ -6,11 +6,11 @@
 /*   By: romachad <romachad@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 07:44:33 by romachad          #+#    #+#             */
-/*   Updated: 2022/10/13 21:52:53 by coret            ###   ########.fr       */
+/*   Updated: 2022/10/18 00:32:33 by coret            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "../headers/fractol.h"
 
 void	draw_fractal(t_fractol *f)
 {
@@ -45,7 +45,7 @@ void	draw_fractal(t_fractol *f)
 	f->start_Y = -1;
 	return (0);
 }*/
-
+#include <stdio.h>
 int	main(void)
 {
 	t_fractol	f;
@@ -68,6 +68,7 @@ int	main(void)
 
 	draw_fractal(&f);
 	mlx_put_image_to_window(f.mlx, f.win, f.img, 0, 0);
+	printf("min_r: %f\nmax_r: %f\nmin_i: %f\nmax_i: %f\n",f.min_r, f.max_r, f.min_i, f.max_i);
 	mlx_key_hook(f.win, key_hook, &f);
 	mlx_mouse_hook(f.win, mouse_hook, &f);
 	mlx_hook(f.win, 6, 1L<<6, mouse_move, &f);

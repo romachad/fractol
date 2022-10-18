@@ -6,11 +6,11 @@
 /*   By: romachad <romachad@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 07:33:17 by romachad          #+#    #+#             */
-/*   Updated: 2022/10/13 22:43:19 by coret            ###   ########.fr       */
+/*   Updated: 2022/10/18 00:20:38 by coret            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "../headers/fractol.h"
 
 void my_mlx_pixel_put(t_fractol *f, int color)
 {

@@ -6,7 +6,7 @@
 /*   By: romachad <romachad@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 07:04:31 by romachad          #+#    #+#             */
-/*   Updated: 2022/10/13 23:21:58 by coret            ###   ########.fr       */
+/*   Updated: 2022/10/15 17:40:11 by coret            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,12 @@
 # define FRACTOL_H
 
 # include <mlx.h>
+# include <stdlib.h>
 # define MAX_ITER 80
 # define WIDTH 1000
 # define HEIGHT 1000
+# define INC_Z 0.75
+# define DEC_Z 1.40
 
 typedef struct s_fractol
 {
@@ -54,5 +57,6 @@ int	mouse_move(int x, int y);
 void	draw_fractal(t_fractol *f);
 void	draw_change(t_fractol *f);
 int	render_next_frame(t_fractol *f);
+int	quit(t_fractol *f);
 
 #endif
