@@ -6,12 +6,12 @@
 /*   By: romachad <romachad@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 07:44:33 by romachad          #+#    #+#             */
-/*   Updated: 2022/10/18 00:32:33 by coret            ###   ########.fr       */
+/*   Updated: 2022/10/18 20:24:17 by coret            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/fractol.h"
-
+/*Test*/
 void	draw_fractal(t_fractol *f)
 {
 	//int	x;
