@@ -6,7 +6,7 @@
 /*   By: romachad <romachad@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 07:44:33 by romachad          #+#    #+#             */
-/*   Updated: 2022/10/18 20:24:17 by coret            ###   ########.fr       */
+/*   Updated: 2022/10/18 21:37:45 by coret            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,14 @@ void	draw_fractal(t_fractol *f)
 	double	cr;
 	double	ci;
 
-	f->Y = f->start_Y;
+	//f->Y = f->start_Y;
+	f->Y = -1;
 	while (++f->Y < HEIGHT)
 	{
-		f->X = f->start_X;
-		//while (++f->X < WIDTH)
-		while (++f->X < f->max_WIDTH)
+		//f->X = f->start_X;
+		f->X = -1;
+		while (++f->X < WIDTH)
+	//	while (++f->X < f->max_WIDTH)
 		{
 			cr = f->min_r + (((double)f->X * (f->max_r - f->min_r)) / WIDTH);
 			ci = f->min_i + (((double)f->Y * (f->max_i - f->min_i)) / HEIGHT);
@@ -33,6 +35,41 @@ void	draw_fractal(t_fractol *f)
 		}
 		//y++;
 	}
+}
+
+#include <stdio.h>
+
+void	start_mandelbrot(t_fractol *f)
+{
+	f->mlx = mlx_init();
+	f->min_r = -2;
+	f->max_r = 1;
+	f->min_i = -1.5;
+	f->max_i = f->min_i + (f->max_r - f->min_r) * (HEIGHT / WIDTH);
+	f->win = mlx_new_window(f->mlx, WIDTH, HEIGHT, "Mandelbrot");
+	f->img = mlx_new_image(f->mlx, WIDTH, HEIGHT);
+	f->addr = mlx_get_data_addr(f->img, &f->bits_per_pixel, &f->line_length, &f->endian);
+	draw_fractal(f);
+	mlx_put_image_to_window(f->mlx, f->win, f->img, 0, 0);
+	printf("min_r: %f\nmax_r: %f\nmin_i: %f\nmax_i: %f\n",f->min_r, f->max_r, f->min_i, f->max_i);
+	mlx_key_hook(f->win, key_hook, f);
+	mlx_mouse_hook(f->win, mouse_hook, f);
+	mlx_hook(f->win, 6, 1L<<6, mouse_move, f);
+	mlx_loop(f->mlx);
+}
+
+int	main(int argc, char **argv)
+{
+	t_fractol	f;
+
+	if (argc != 2)
+	{
+		printf("too much or too little args");
+		exit(1);
+	}
+	if (argc == 2 && argv[1][0] == 'm')
+		start_mandelbrot(&f);
+	exit(0);
 }
 
 /*int	render_next_frame(t_fractol *f)
@@ -45,7 +82,7 @@ void	draw_fractal(t_fractol *f)
 	f->start_Y = -1;
 	return (0);
 }*/
-#include <stdio.h>
+/* OLD MAIN
 int	main(void)
 {
 	t_fractol	f;
@@ -74,4 +111,4 @@ int	main(void)
 	mlx_hook(f.win, 6, 1L<<6, mouse_move, &f);
 	//mlx_loop_hook(f.mlx, render_next_frame, &f);
 	mlx_loop(f.mlx);
-}
+}*/

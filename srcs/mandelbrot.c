@@ -6,7 +6,7 @@
 /*   By: romachad <romachad@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 07:33:17 by romachad          #+#    #+#             */
-/*   Updated: 2022/10/18 00:20:38 by coret            ###   ########.fr       */
+/*   Updated: 2022/10/18 20:56:12 by coret            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	mandelbrot(t_fractol *f, double cr, double ci)
 }
 
 #include <stdio.h>
-void	draw_change(t_fractol *f)
+/*void	draw_change(t_fractol *f)
 {
 	double	cr;
 	double	ci;
@@ -74,7 +74,7 @@ void	draw_change(t_fractol *f)
 			mandelbrot2(f, cr, ci);
 		}
 	}
-}
+}*/
 /*void	draw_change(t_fractol *f, int x, int y)
 {
 	double cr;
@@ -94,7 +94,7 @@ void	draw_change(t_fractol *f)
 	}
 }*/
 
-void	mandelbrot2(t_fractol *f, double cr, double ci)
+/*void	mandelbrot2(t_fractol *f, double cr, double ci)
 {
 	int	n;
 	double	zr;
@@ -121,4 +121,4 @@ void	mandelbrot2(t_fractol *f, double cr, double ci)
 		my_mlx_pixel_put(f, 0x00FF0000);
 	else
 		my_mlx_pixel_put(f, 0x0000FFFF);
-}
+}*/

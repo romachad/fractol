@@ -6,7 +6,7 @@
 /*   By: romachad <romachad@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 07:04:31 by romachad          #+#    #+#             */
-/*   Updated: 2022/10/15 17:40:11 by coret            ###   ########.fr       */
+/*   Updated: 2022/10/18 21:37:55 by coret            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,9 @@ typedef struct s_fractol
 	int	endian;
 	int	X;
 	int	Y;
-	int	start_X; //possible to be removed
-	int	start_Y; // possible to be removed
-	int	max_WIDTH; //possible to be removed
+	//int	start_X; //possible to be removed
+	//int	start_Y; // possible to be removed
+	//int	max_WIDTH; //possible to be removed
 	int	draw_width;
 	int	draw_height;
 	double	min_r;
@@ -50,12 +50,12 @@ void	mandelbrot(t_fractol *f, double cr, double ci);
 void	mandelbrot2(t_fractol *f, double cr, double ci);
 //void	my_mlx_pixel_put(t_fractol *data, int x, int y, int color);
 void	my_mlx_pixel_put(t_fractol *data, int color);
-void	my_mlx_pixel_put2(t_fractol *data, int color);
+//void	my_mlx_pixel_put2(t_fractol *data, int color);
 int	key_hook(int keycode, t_fractol *f);
 int	mouse_hook(int mousecode);
 int	mouse_move(int x, int y);
 void	draw_fractal(t_fractol *f);
-void	draw_change(t_fractol *f);
+//void	draw_change(t_fractol *f);
 int	render_next_frame(t_fractol *f);
 int	quit(t_fractol *f);
 
