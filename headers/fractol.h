@@ -6,7 +6,7 @@
 /*   By: romachad <romachad@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 07:04:31 by romachad          #+#    #+#             */
-/*   Updated: 2022/10/18 21:37:55 by coret            ###   ########.fr       */
+/*   Updated: 2022/10/23 03:34:07 by coret            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,17 +37,23 @@ typedef struct s_fractol
 	//int	start_X; //possible to be removed
 	//int	start_Y; // possible to be removed
 	//int	max_WIDTH; //possible to be removed
-	int	draw_width;
-	int	draw_height;
+	//int	draw_width;
+	//int	draw_height;
 	double	min_r;
 	double	max_r;
 	double	min_i;
 	double	max_i;
 	double	tmp;
+	double	zr;
+	double	zi;
+	double	cr;
+	double	ci;
+	char	fractol;
 }	t_fractol;
 
-void	mandelbrot(t_fractol *f, double cr, double ci);
-void	mandelbrot2(t_fractol *f, double cr, double ci);
+//void	mandelbrot(t_fractol *f, double cr, double ci);
+void	fractal(t_fractol *f);
+//void	mandelbrot2(t_fractol *f, double cr, double ci);
 //void	my_mlx_pixel_put(t_fractol *data, int x, int y, int color);
 void	my_mlx_pixel_put(t_fractol *data, int color);
 //void	my_mlx_pixel_put2(t_fractol *data, int color);
