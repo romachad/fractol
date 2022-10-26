@@ -6,7 +6,7 @@
 /*   By: romachad <romachad@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 00:08:48 by romachad          #+#    #+#             */
-/*   Updated: 2022/10/24 02:01:40 by coret            ###   ########.fr       */
+/*   Updated: 2022/10/25 21:25:40 by coret            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,10 +77,10 @@ int	key_hook(int keycode, t_fractol *f)
 	{
 		f->tmp = f->min_r;
 		f->min_r = f->max_r + INC_Z * (f->min_r - f->max_r);
-		f->max_r = f->max_r + ((f->tmp - f->max_r) - INC_Z * (f->tmp -f->max_r)) / 2;
+		f->max_r = f->max_r + ((f->tmp - f->max_r) - INC_Z * (f->tmp -f->max_r));
 		f->tmp = f->min_i;
 		f->min_i = f->max_i + INC_Z * (f->min_i - f->max_i);
-		f->max_i = f->max_i + ((f->tmp - f->max_i) - INC_Z * (f->tmp -f->max_i)) / 2;
+		f->max_i = f->max_i + ((f->tmp - f->max_i) - INC_Z * (f->tmp -f->max_i));
 		f->addr = mlx_get_data_addr(f->img, &f->bits_per_pixel, &f->line_length, &f->endian);
 		draw_fractal(f);
 		mlx_put_image_to_window(f->mlx, f->win, f->img, 0, 0);
@@ -90,10 +90,10 @@ int	key_hook(int keycode, t_fractol *f)
 	{
 		f->tmp = f->min_r;
 		f->min_r = f->max_r + DEC_Z * (f->min_r - f->max_r);
-		f->max_r = f->max_r + ((f->tmp - f->max_r) - DEC_Z * (f->tmp -f->max_r)) / 2;
+		f->max_r = f->max_r + ((f->tmp - f->max_r) - DEC_Z * (f->tmp -f->max_r));
 		f->tmp = f->min_i;
 		f->min_i = f->max_i + DEC_Z * (f->min_i - f->max_i);
-		f->max_i = f->max_i + ((f->tmp - f->max_i) - DEC_Z * (f->tmp -f->max_i)) / 2;
+		f->max_i = f->max_i + ((f->tmp - f->max_i) - DEC_Z * (f->tmp -f->max_i));
 		f->addr = mlx_get_data_addr(f->img, &f->bits_per_pixel, &f->line_length, &f->endian);
 		draw_fractal(f);
 		mlx_put_image_to_window(f->mlx, f->win, f->img, 0, 0);

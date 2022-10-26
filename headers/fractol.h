@@ -6,7 +6,7 @@
 /*   By: romachad <romachad@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 07:04:31 by romachad          #+#    #+#             */
-/*   Updated: 2022/10/25 20:16:11 by coret            ###   ########.fr       */
+/*   Updated: 2022/10/25 21:31:02 by coret            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # define WIDTH 1000
 # define HEIGHT 1000
 # define INC_Z 0.75
-# define DEC_Z 1.40
+# define DEC_Z 1.50
 
 typedef struct s_fractol
 {
