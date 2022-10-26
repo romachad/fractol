@@ -6,7 +6,7 @@
 /*   By: romachad <romachad@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 07:04:31 by romachad          #+#    #+#             */
-/*   Updated: 2022/10/23 03:34:07 by coret            ###   ########.fr       */
+/*   Updated: 2022/10/25 20:16:11 by coret            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ typedef struct s_fractol
 	double	cr;
 	double	ci;
 	char	fractol;
+	int	n;
 }	t_fractol;
 
 //void	mandelbrot(t_fractol *f, double cr, double ci);

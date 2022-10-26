@@ -6,7 +6,7 @@
 /*   By: romachad <romachad@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 07:44:33 by romachad          #+#    #+#             */
-/*   Updated: 2022/10/23 03:37:22 by coret            ###   ########.fr       */
+/*   Updated: 2022/10/24 23:05:01 by coret            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,19 @@
 void	set_mandelbrot(t_fractol *f)
 {
 	f->mlx = mlx_init();
+	/* Normal mandelbrot start */
 	f->min_r = -2;
 	f->max_r = 1;
 	f->min_i = -1.5;
 	f->max_i = f->min_i + (f->max_r - f->min_r) * (HEIGHT / WIDTH);
+	/* End of mandelbrot */
+
+	/* Values for performance test */
+	/*f->min_r = -1.511373;
+	f->max_r = -1.511335;
+	f->min_i = -0.000028;
+	f->max_i = f->min_i + (f->max_r - f->min_r) * (HEIGHT / WIDTH);*/
+	/*End of performance test*/
 }
 
 void	set_julia(t_fractol *f)
@@ -43,12 +52,23 @@ void	main_fractal(t_fractol *f)
 	f->img = mlx_new_image(f->mlx, WIDTH, HEIGHT);
 	f->addr = mlx_get_data_addr(f->img, &f->bits_per_pixel, &f->line_length, &f->endian);
 	draw_fractal(f);
+	/* Normal flow */
 	mlx_put_image_to_window(f->mlx, f->win, f->img, 0, 0);
 	printf("min_r: %f\nmax_r: %f\nmin_i: %f\nmax_i: %f\n",f->min_r, f->max_r, f->min_i, f->max_i);
 	mlx_key_hook(f->win, key_hook, f);
 	mlx_mouse_hook(f->win, mouse_hook, f);
 	mlx_hook(f->win, 6, 1L<<6, mouse_move, f);
 	mlx_loop(f->mlx);
+	/*---End of normal flow*/
+	/* Created for performance testing*/
+	/*key_hook(65364, f);
+	key_hook(65364, f);
+	key_hook(65364, f);
+	key_hook(65364, f);
+	key_hook(65364, f);
+	key_hook(65364, f);
+	key_hook(113, f);*/
+	/* End of performance test */
 }
 
 int	main(int argc, char **argv)

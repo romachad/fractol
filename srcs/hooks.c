@@ -6,7 +6,7 @@
 /*   By: romachad <romachad@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 00:08:48 by romachad          #+#    #+#             */
-/*   Updated: 2022/10/18 00:33:33 by coret            ###   ########.fr       */
+/*   Updated: 2022/10/24 02:01:40 by coret            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	key_hook(int keycode, t_fractol *f)
 		draw_fractal(f);
 		//draw_change(f);
 		mlx_put_image_to_window(f->mlx, f->win, f->img, 0, 0);
-		printf("min_r: %f\nmax_r: %f\nmin_i: %f\nmax_i: %f\n",f->min_r, f->max_r, f->min_i, f->max_i);
+		printf("min_r: %lf\nmax_r: %lf\nmin_i: %lf\nmax_i: %lf\n",f->min_r, f->max_r, f->min_i, f->max_i);
 	}
 	else if (keycode == RIGHT)
 	{
@@ -51,7 +51,7 @@ int	key_hook(int keycode, t_fractol *f)
 		draw_fractal(f);
 		//draw_change(f);
 		mlx_put_image_to_window(f->mlx, f->win, f->img, 0, 0);
-		printf("min_r: %f\nmax_r: %f\nmin_i: %f\nmax_i: %f\n",f->min_r, f->max_r, f->min_i, f->max_i);
+		printf("min_r: %lf\nmax_r: %lf\nmin_i: %lf\nmax_i: %lf\n",f->min_r, f->max_r, f->min_i, f->max_i);
 	}
 	else if (keycode == UP)
 	{
@@ -61,7 +61,7 @@ int	key_hook(int keycode, t_fractol *f)
 		f->addr = mlx_get_data_addr(f->img, &f->bits_per_pixel, &f->line_length, &f->endian);
 		draw_fractal(f);
 		mlx_put_image_to_window(f->mlx, f->win, f->img, 0, 0);
-		printf("min_r: %f\nmax_r: %f\nmin_i: %f\nmax_i: %f\n",f->min_r, f->max_r, f->min_i, f->max_i);
+		printf("min_r: %lf\nmax_r: %lf\nmin_i: %lf\nmax_i: %lf\n",f->min_r, f->max_r, f->min_i, f->max_i);
 	}
 	else if (keycode == DOWN)
 	{
@@ -71,7 +71,7 @@ int	key_hook(int keycode, t_fractol *f)
 		f->addr = mlx_get_data_addr(f->img, &f->bits_per_pixel, &f->line_length, &f->endian);
 		draw_fractal(f);
 		mlx_put_image_to_window(f->mlx, f->win, f->img, 0, 0);
-		printf("min_r: %f\nmax_r: %f\nmin_i: %f\nmax_i: %f\n",f->min_r, f->max_r, f->min_i, f->max_i);
+		printf("min_r: %lf\nmax_r: %lf\nmin_i: %lf\nmax_i: %lf\n",f->min_r, f->max_r, f->min_i, f->max_i);
 	}
 	else if (keycode == PLUS_KEY)
 	{
@@ -84,7 +84,7 @@ int	key_hook(int keycode, t_fractol *f)
 		f->addr = mlx_get_data_addr(f->img, &f->bits_per_pixel, &f->line_length, &f->endian);
 		draw_fractal(f);
 		mlx_put_image_to_window(f->mlx, f->win, f->img, 0, 0);
-		printf("min_r: %f\nmax_r: %f\nmin_i: %f\nmax_i: %f\n",f->min_r, f->max_r, f->min_i, f->max_i);
+		printf("min_r: %lf\nmax_r: %lf\nmin_i: %lf\nmax_i: %lf\n",f->min_r, f->max_r, f->min_i, f->max_i);
 	}
 	else if (keycode == MINUS_KEY)
 	{
@@ -97,7 +97,7 @@ int	key_hook(int keycode, t_fractol *f)
 		f->addr = mlx_get_data_addr(f->img, &f->bits_per_pixel, &f->line_length, &f->endian);
 		draw_fractal(f);
 		mlx_put_image_to_window(f->mlx, f->win, f->img, 0, 0);
-		printf("min_r: %f\nmax_r: %f\nmin_i: %f\nmax_i: %f\n",f->min_r, f->max_r, f->min_i, f->max_i);
+		printf("min_r: %lf\nmax_r: %lf\nmin_i: %lf\nmax_i: %lf\n",f->min_r, f->max_r, f->min_i, f->max_i);
 	}
 	else if (keycode == ESC || keycode == Q)
 		quit(f);
@@ -109,7 +109,7 @@ int	key_hook(int keycode, t_fractol *f)
 		f->max_i = f->min_i + (f->max_r - f->min_r) * (HEIGHT / WIDTH);
 		draw_fractal(f);
 		mlx_put_image_to_window(f->mlx, f->win, f->img, 0, 0);
-		printf("min_r: %f\nmax_r: %f\nmin_i: %f\nmax_i: %f\n",f->min_r, f->max_r, f->min_i, f->max_i);
+		printf("min_r: %lf\nmax_r: %lf\nmin_i: %lf\nmax_i: %lf\n",f->min_r, f->max_r, f->min_i, f->max_i);
 	}
 	return (0);
 }
