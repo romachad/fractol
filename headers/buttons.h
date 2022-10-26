@@ -6,7 +6,7 @@
 /*   By: romachad <romachad@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 23:46:14 by romachad          #+#    #+#             */
-/*   Updated: 2022/10/15 17:48:29 by coret            ###   ########.fr       */
+/*   Updated: 2022/10/25 23:20:17 by coret            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@
 # define PLUS_KEY	65451
 # define MINUS_KEY	65453
 # define KEY_PRESS_EVENT	02
-# define MOUSE_PRESS_EVENT	04
+# define SCROLL_FW	04
+# define SCROLL_BW	05
 # define DESTROY_EVENT	17
 # define ENTER_EVENT	07
 

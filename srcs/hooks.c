@@ -6,7 +6,7 @@
 /*   By: romachad <romachad@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 00:08:48 by romachad          #+#    #+#             */
-/*   Updated: 2022/10/25 21:25:40 by coret            ###   ########.fr       */
+/*   Updated: 2022/10/25 23:56:23 by coret            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,109 +14,46 @@
 #include "../headers/buttons.h"
 
 #include <stdio.h>
+//int	mouse_hook(int mousecode, t_fractol f);
 int	key_hook(int keycode, t_fractol *f)
 {
-	//double tmp;
 	printf("Key pressed: %i\n", keycode);
 	if (keycode == LEFT)
-	{
-		f->tmp = f->min_r;
-		f->min_r -= (f->max_r - f->min_r) * 0.05;
-		f->max_r -= (f->max_r - f->tmp) * 0.05;
-		/*f->min_r -= 0.2;
-		f->max_r -= 0.2;*/
-//		mlx_destroy_image(f->mlx, f->img);
-//		f->img = mlx_new_image(f->mlx, WIDTH, HEIGHT);
-		f->addr = mlx_get_data_addr(f->img, &f->bits_per_pixel, &f->line_length, &f->endian);
-		draw_fractal(f);
-		//draw_change(f);
-		mlx_put_image_to_window(f->mlx, f->win, f->img, 0, 0);
-		printf("min_r: %lf\nmax_r: %lf\nmin_i: %lf\nmax_i: %lf\n",f->min_r, f->max_r, f->min_i, f->max_i);
-	}
-	else if (keycode == RIGHT)
-	{
-		f->tmp = f->min_r;
-		f->min_r += (f->max_r - f->min_r) * 0.05;
-		f->max_r += (f->max_r - f->tmp) * 0.05;
-		/*f->min_r += 0.2;
-		f->max_r += 0.2;*/
-		//mlx_destroy_image(f->mlx, f->img);
-		//f->img = mlx_new_image(f->mlx, WIDTH, HEIGHT);
-		//mlx_destroy_image(f->mlx, f->img);
-		/*int x;
-		x = 0.2 / ((f->max_r - f->min_r) / WIDTH);*/
-	//	f->start_X = (0.2 / ((f->max_r - f->min_r) / WIDTH));
-	//	f->start_X = WIDTH - f->start_X - 1;
-		f->addr = mlx_get_data_addr(f->img, &f->bits_per_pixel, &f->line_length, &f->endian);
-		draw_fractal(f);
-		//draw_change(f);
-		mlx_put_image_to_window(f->mlx, f->win, f->img, 0, 0);
-		printf("min_r: %lf\nmax_r: %lf\nmin_i: %lf\nmax_i: %lf\n",f->min_r, f->max_r, f->min_i, f->max_i);
-	}
-	else if (keycode == UP)
-	{
-		f->tmp = f->min_i;
-		f->min_i -= (f->max_i - f->min_i) * 0.05;
-		f->max_i -= (f->max_i - f->tmp) * 0.05;
-		f->addr = mlx_get_data_addr(f->img, &f->bits_per_pixel, &f->line_length, &f->endian);
-		draw_fractal(f);
-		mlx_put_image_to_window(f->mlx, f->win, f->img, 0, 0);
-		printf("min_r: %lf\nmax_r: %lf\nmin_i: %lf\nmax_i: %lf\n",f->min_r, f->max_r, f->min_i, f->max_i);
-	}
-	else if (keycode == DOWN)
-	{
-		f->tmp = f->min_i;
-		f->min_i += (f->max_i - f->min_i) * 0.05;
-		f->max_i += (f->max_i - f->tmp) * 0.05;
-		f->addr = mlx_get_data_addr(f->img, &f->bits_per_pixel, &f->line_length, &f->endian);
-		draw_fractal(f);
-		mlx_put_image_to_window(f->mlx, f->win, f->img, 0, 0);
-		printf("min_r: %lf\nmax_r: %lf\nmin_i: %lf\nmax_i: %lf\n",f->min_r, f->max_r, f->min_i, f->max_i);
-	}
-	else if (keycode == PLUS_KEY)
-	{
-		f->tmp = f->min_r;
-		f->min_r = f->max_r + INC_Z * (f->min_r - f->max_r);
-		f->max_r = f->max_r + ((f->tmp - f->max_r) - INC_Z * (f->tmp -f->max_r));
-		f->tmp = f->min_i;
-		f->min_i = f->max_i + INC_Z * (f->min_i - f->max_i);
-		f->max_i = f->max_i + ((f->tmp - f->max_i) - INC_Z * (f->tmp -f->max_i));
-		f->addr = mlx_get_data_addr(f->img, &f->bits_per_pixel, &f->line_length, &f->endian);
-		draw_fractal(f);
-		mlx_put_image_to_window(f->mlx, f->win, f->img, 0, 0);
-		printf("min_r: %lf\nmax_r: %lf\nmin_i: %lf\nmax_i: %lf\n",f->min_r, f->max_r, f->min_i, f->max_i);
-	}
-	else if (keycode == MINUS_KEY)
-	{
-		f->tmp = f->min_r;
-		f->min_r = f->max_r + DEC_Z * (f->min_r - f->max_r);
-		f->max_r = f->max_r + ((f->tmp - f->max_r) - DEC_Z * (f->tmp -f->max_r));
-		f->tmp = f->min_i;
-		f->min_i = f->max_i + DEC_Z * (f->min_i - f->max_i);
-		f->max_i = f->max_i + ((f->tmp - f->max_i) - DEC_Z * (f->tmp -f->max_i));
-		f->addr = mlx_get_data_addr(f->img, &f->bits_per_pixel, &f->line_length, &f->endian);
-		draw_fractal(f);
-		mlx_put_image_to_window(f->mlx, f->win, f->img, 0, 0);
-		printf("min_r: %lf\nmax_r: %lf\nmin_i: %lf\nmax_i: %lf\n",f->min_r, f->max_r, f->min_i, f->max_i);
-	}
-	else if (keycode == ESC || keycode == Q)
+		left(f);
+	if (keycode == RIGHT)
+		right(f);
+	if (keycode == UP)
+		up(f);
+	if (keycode == DOWN)
+		down(f);
+	if (keycode == PLUS_KEY)
+		increase_zoom(f);
+	if (keycode == MINUS_KEY)
+		decrease_zoom(f);
+	if (keycode == ESC || keycode == Q)
 		quit(f);
-	else if (keycode == R)
-	{
-		f->min_r = -2;
-		f->max_r = 1;
-		f->min_i = -1.5;
-		f->max_i = f->min_i + (f->max_r - f->min_r) * (HEIGHT / WIDTH);
-		draw_fractal(f);
-		mlx_put_image_to_window(f->mlx, f->win, f->img, 0, 0);
-		printf("min_r: %lf\nmax_r: %lf\nmin_i: %lf\nmax_i: %lf\n",f->min_r, f->max_r, f->min_i, f->max_i);
-	}
+	if (keycode == R)
+		reset(f);
+	printf("addr: %p\n", &f);
 	return (0);
 }
 
-int	mouse_hook(int mousecode)
+int	mouse_hook(int mousecode, t_fractol *f)
 {
 	printf("Mouse pressed: %i\n", mousecode);
+	if (mousecode == SCROLL_FW)
+	{
+		printf("VAI CRASHAR!!!\n");
+		printf("\naddr: %p\n", &f);
+		key_hook(PLUS_KEY, f);
+		/*f->min_r = -2;
+		f->max_r = 1;
+		f->min_i = -1.5;
+		f->max_i = 1.5;*/
+	}
+		//increase_zoom(&f);
+	//if (mousecode == SCROLL_BW)
+		//decrease_zoom(&f);
 	return (0);
 }
 

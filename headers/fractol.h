@@ -6,7 +6,7 @@
 /*   By: romachad <romachad@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 07:04:31 by romachad          #+#    #+#             */
-/*   Updated: 2022/10/25 21:31:02 by coret            ###   ########.fr       */
+/*   Updated: 2022/10/25 23:44:55 by coret            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,11 +59,18 @@ void	fractal(t_fractol *f);
 void	my_mlx_pixel_put(t_fractol *data, int color);
 //void	my_mlx_pixel_put2(t_fractol *data, int color);
 int	key_hook(int keycode, t_fractol *f);
-int	mouse_hook(int mousecode);
+int	mouse_hook(int mousecode, t_fractol *f);
 int	mouse_move(int x, int y);
 void	draw_fractal(t_fractol *f);
 //void	draw_change(t_fractol *f);
 int	render_next_frame(t_fractol *f);
 int	quit(t_fractol *f);
+void	left(t_fractol *f);
+void	right(t_fractol *f);
+void	up(t_fractol *f);
+void	down(t_fractol *f);
+void	increase_zoom(t_fractol *f);
+void	decrease_zoom(t_fractol *f);
+void	reset(t_fractol *f);
 
 #endif

@@ -6,13 +6,13 @@
 /*   By: romachad <romachad@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 07:44:33 by romachad          #+#    #+#             */
-/*   Updated: 2022/10/24 23:05:01 by coret            ###   ########.fr       */
+/*   Updated: 2022/10/25 23:57:38 by coret            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/fractol.h"
 
-#include <stdio.h>
+#include <stdio.h> //REMOVER!!!!
 
 void	set_mandelbrot(t_fractol *f)
 {
@@ -51,10 +51,8 @@ void	main_fractal(t_fractol *f)
 		f->win = mlx_new_window(f->mlx, WIDTH, HEIGHT, "Julia");
 	f->img = mlx_new_image(f->mlx, WIDTH, HEIGHT);
 	f->addr = mlx_get_data_addr(f->img, &f->bits_per_pixel, &f->line_length, &f->endian);
-	draw_fractal(f);
+	reset(f);
 	/* Normal flow */
-	mlx_put_image_to_window(f->mlx, f->win, f->img, 0, 0);
-	printf("min_r: %f\nmax_r: %f\nmin_i: %f\nmax_i: %f\n",f->min_r, f->max_r, f->min_i, f->max_i);
 	mlx_key_hook(f->win, key_hook, f);
 	mlx_mouse_hook(f->win, mouse_hook, f);
 	mlx_hook(f->win, 6, 1L<<6, mouse_move, f);

@@ -6,12 +6,13 @@
 /*   By: romachad <romachad@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 07:33:17 by romachad          #+#    #+#             */
-/*   Updated: 2022/10/25 21:00:08 by coret            ###   ########.fr       */
+/*   Updated: 2022/10/25 22:40:55 by coret            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/fractol.h"
 
+#include <stdio.h> //REMOVER!!!!
 void	draw_fractal(t_fractol *f)
 {
 	f->Y = -1;
@@ -33,6 +34,8 @@ void	draw_fractal(t_fractol *f)
 			fractal(f);
 		}
 	}
+	mlx_put_image_to_window(f->mlx, f->win, f->img, 0, 0);
+	printf("min_r: %lf\nmax_r: %lf\nmin_i: %lf\nmax_i: %lf\n",f->min_r, f->max_r, f->min_i, f->max_i);
 }
 
 void my_mlx_pixel_put(t_fractol *f, int color)
