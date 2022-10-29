@@ -6,7 +6,7 @@
 /*   By: romachad <romachad@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 07:44:33 by romachad          #+#    #+#             */
-/*   Updated: 2022/10/25 23:57:38 by coret            ###   ########.fr       */
+/*   Updated: 2022/10/29 02:37:47 by coret            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ void	set_mandelbrot(t_fractol *f)
 	f->max_r = 1;
 	f->min_i = -1.5;
 	f->max_i = f->min_i + (f->max_r - f->min_r) * (HEIGHT / WIDTH);
+	//f->zoom_lvl = 0;
 	/* End of mandelbrot */
 
 	/* Values for performance test */
@@ -41,6 +42,7 @@ void	set_julia(t_fractol *f)
 	f->max_i = f->min_i + (f->max_r - f->min_r) * (HEIGHT / WIDTH);
 	f->cr = -0.54;
 	f->ci = 0.54;
+	//f->zoom_lvl = 0;
 }
 
 void	main_fractal(t_fractol *f)

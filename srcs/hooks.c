@@ -6,7 +6,7 @@
 /*   By: romachad <romachad@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 00:08:48 by romachad          #+#    #+#             */
-/*   Updated: 2022/10/25 23:56:23 by coret            ###   ########.fr       */
+/*   Updated: 2022/10/27 20:25:55 by coret            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,22 +38,21 @@ int	key_hook(int keycode, t_fractol *f)
 	return (0);
 }
 
-int	mouse_hook(int mousecode, t_fractol *f)
+int	mouse_hook(int mousecode, int x, int y, t_fractol *f)
 {
-	printf("Mouse pressed: %i\n", mousecode);
+	printf("Mouse pressed: %i ; x=%i y=%i\n", mousecode,x,y);
 	if (mousecode == SCROLL_FW)
 	{
-		printf("VAI CRASHAR!!!\n");
-		printf("\naddr: %p\n", &f);
-		key_hook(PLUS_KEY, f);
+		//printf("\naddr: %p\n", &f);
+		//key_hook(PLUS_KEY, f);
 		/*f->min_r = -2;
 		f->max_r = 1;
 		f->min_i = -1.5;
 		f->max_i = 1.5;*/
+		increase_zoom(f);
 	}
-		//increase_zoom(&f);
-	//if (mousecode == SCROLL_BW)
-		//decrease_zoom(&f);
+	if (mousecode == SCROLL_BW)
+		decrease_zoom(f);
 	return (0);
 }
 
