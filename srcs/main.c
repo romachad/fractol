@@ -6,7 +6,7 @@
 /*   By: romachad <romachad@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 07:44:33 by romachad          #+#    #+#             */
-/*   Updated: 2022/10/29 02:37:47 by coret            ###   ########.fr       */
+/*   Updated: 2022/10/29 22:08:51 by coret            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@ void	set_julia(t_fractol *f)
 	f->max_r = 1.5;
 	f->min_i = -1.5;
 	f->max_i = f->min_i + (f->max_r - f->min_r) * (HEIGHT / WIDTH);
-	f->cr = -0.54;
-	f->ci = 0.54;
+	/*f->cr = -0.54;
+	f->ci = 0.54;*/
 	//f->zoom_lvl = 0;
 }
 
@@ -75,18 +75,30 @@ int	main(int argc, char **argv)
 {
 	t_fractol	f;
 
-	if (argc != 2)
+	if (argc <= 2 || argc > 4)
 	{
 		printf("too much or too little args");
 		exit(1);
 	}
-	if (argc == 2 && (argv[1][0] == 'm' || argv[1][0] == 'j'))
+	/*if (argc == 3)
+	{
+		double valor;
+		valor = ft_atof(argv[2]);
+		printf ("\nDouble com valor de: %lf\n\n", valor);
+	}*/
+	//if (argc == 2 && (argv[1][0] == 'm' || argv[1][0] == 'j'))
+	if (argv[1][0] == 'm' || argv[1][0] == 'j')
 	{
 		f.fractol = argv[1][0];
 		if (f.fractol == 'm')
 			set_mandelbrot(&f);
 		else
+		{
+			f.cr = ft_atof(argv[2]);
+			f.ci = ft_atof(argv[3]);
 			set_julia(&f);
+			printf("Julia, cr: %lf ci: %lf\n", f.cr, f.ci);
+		}
 		main_fractal(&f);
 	}
 	exit(0);

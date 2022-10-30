@@ -40,8 +40,8 @@ void	reset(t_fractol *f)
 		f->max_r = 1.5;
 		f->min_i = -1.5;
 		f->max_i = f->min_i + (f->max_r - f->min_r) * (HEIGHT / WIDTH);
-		f->cr = -0.54;
-		f->ci = 0.54;
+		/*f->cr = -0.54;
+		f->ci = 0.54;*/
 		//f->zoom_lvl = 0;
 	}
 	draw_fractal(f);

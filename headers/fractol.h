@@ -6,7 +6,7 @@
 /*   By: romachad <romachad@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 07:04:31 by romachad          #+#    #+#             */
-/*   Updated: 2022/10/29 02:36:41 by coret            ###   ########.fr       */
+/*   Updated: 2022/10/29 21:04:47 by coret            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,5 +73,6 @@ void	down(t_fractol *f);
 void	increase_zoom(t_fractol *f);
 void	decrease_zoom(t_fractol *f);
 void	reset(t_fractol *f);
+double	ft_atof(const char *str);
 
 #endif
