@@ -6,11 +6,12 @@
 /*   By: romachad <romachad@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 07:44:33 by romachad          #+#    #+#             */
-/*   Updated: 2022/10/29 22:08:51 by coret            ###   ########.fr       */
+/*   Updated: 2022/10/31 22:13:23 by coret            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/fractol.h"
+#include "../headers/ft_printf.h"
 
 #include <stdio.h> //REMOVER!!!!
 
@@ -75,6 +76,7 @@ int	main(int argc, char **argv)
 {
 	t_fractol	f;
 
+	ft_printf("MINE PRINTF!!\n\n");
 	if (argc <= 2 || argc > 4)
 	{
 		printf("too much or too little args");
