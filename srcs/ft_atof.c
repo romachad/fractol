@@ -6,9 +6,10 @@
 /*   By: romachad <romachad@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 05:13:46 by romachad          #+#    #+#             */
-/*   Updated: 2022/11/02 05:14:44 by romachad         ###   ########.fr       */
+/*   Updated: 2022/11/02 13:48:03 by romachad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 static char	*skip_spaces(const char *str)
 {
@@ -27,7 +28,7 @@ static char	*skip_spaces(const char *str)
 
 static int	check_signal_number(char c)
 {
-	if (c == '+' || (c >= '0' && c <= '9'))
+	if (c == '+' || (c >= '0' && c <= '9') || c == '.' || c == ',')
 		return (1);
 	else if (c == '-')
 		return (-1);
