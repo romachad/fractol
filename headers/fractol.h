@@ -6,7 +6,7 @@
 /*   By: romachad <romachad@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 07:04:31 by romachad          #+#    #+#             */
-/*   Updated: 2022/10/29 21:04:47 by coret            ###   ########.fr       */
+/*   Updated: 2022/11/02 04:30:59 by romachad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 # include <mlx.h>
 # include <stdlib.h>
 # define MAX_ITER 80
-# define WIDTH 1000
-# define HEIGHT 1000
+# define WIDTH 800
+# define HEIGHT 800
 # define INC_Z 0.75
 # define DEC_Z 1.50
 
@@ -74,5 +74,7 @@ void	increase_zoom(t_fractol *f);
 void	decrease_zoom(t_fractol *f);
 void	reset(t_fractol *f);
 double	ft_atof(const char *str);
+int	expose(t_fractol *f);
+void	message(void);
 
 #endif

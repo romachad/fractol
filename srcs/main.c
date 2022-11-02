@@ -6,7 +6,7 @@
 /*   By: romachad <romachad@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 07:44:33 by romachad          #+#    #+#             */
-/*   Updated: 2022/10/31 22:13:23 by coret            ###   ########.fr       */
+/*   Updated: 2022/11/02 04:42:34 by romachad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,8 @@ void	main_fractal(t_fractol *f)
 	mlx_key_hook(f->win, key_hook, f);
 	mlx_mouse_hook(f->win, mouse_hook, f);
 	mlx_hook(f->win, 6, 1L<<6, mouse_move, f);
+	mlx_hook(f->win, 17, 0, quit, f);
+	mlx_expose_hook(f->win, expose, f);
 	mlx_loop(f->mlx);
 	/*---End of normal flow*/
 	/* Created for performance testing*/
@@ -76,10 +78,11 @@ int	main(int argc, char **argv)
 {
 	t_fractol	f;
 
-	ft_printf("MINE PRINTF!!\n\n");
-	if (argc <= 2 || argc > 4)
+	//ft_printf("MINE PRINTF!!\n\n");
+	if (argc < 2 || argc > 4)
 	{
-		printf("too much or too little args");
+		//printf("too much or too little args");
+		message();
 		exit(1);
 	}
 	/*if (argc == 3)
@@ -103,5 +106,7 @@ int	main(int argc, char **argv)
 		}
 		main_fractal(&f);
 	}
+	else
+		message();
 	exit(0);
 }

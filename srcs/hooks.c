@@ -6,7 +6,7 @@
 /*   By: romachad <romachad@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 00:08:48 by romachad          #+#    #+#             */
-/*   Updated: 2022/10/27 20:25:55 by coret            ###   ########.fr       */
+/*   Updated: 2022/11/02 03:22:24 by romachad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,12 @@ int	mouse_hook(int mousecode, int x, int y, t_fractol *f)
 int	mouse_move(int x, int y)
 {
 	printf("Mouse coord: X=%i\tY=%i\n",x, y);
+	return (0);
+}
+
+int	expose(t_fractol *f)
+{
+	mlx_put_image_to_window(f->mlx, f->win, f->img, 0, 0);
 	return (0);
 }
 
