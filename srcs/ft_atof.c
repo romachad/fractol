@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_atof.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: romachad <romachad@student.42sp.org.br>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/02 05:13:46 by romachad          #+#    #+#             */
+/*   Updated: 2022/11/02 05:14:44 by romachad         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 static char	*skip_spaces(const char *str)
 {
@@ -27,9 +38,9 @@ static int	check_signal_number(char c)
 static double	get_fraction(char *str)
 {
 	double	fraction;
-	int	i;
-	int	j;
-	int	div;
+	int		i;
+	int		j;
+	int		div;
 	double	tmp;
 
 	i = 0;
@@ -49,8 +60,8 @@ static double	get_fraction(char *str)
 
 static double	get_numbers(char *str)
 {
-	int	i;
-	int	j;
+	int		i;
+	int		j;
 	double	nb;
 
 	i = 0;
@@ -61,14 +72,14 @@ static double	get_numbers(char *str)
 	while (++j < i && str[j] >= '0' && str[j] <= '9')
 		nb = (nb * 10) + (str[j] - 0x30);
 	if (str[i] == ',' || str[i] == '.')
-		nb = nb + get_fraction(&str[i+1]);
+		nb = nb + get_fraction(&str[i + 1]);
 	return (nb);
 }
 
 double	ft_atof(const char *str)
 {
 	char	*new_addr;
-	int	signal;
+	int		signal;
 	double	nb;
 
 	if (!str)
