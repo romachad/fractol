@@ -6,7 +6,7 @@
 /*   By: romachad <romachad@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 07:44:33 by romachad          #+#    #+#             */
-/*   Updated: 2022/11/02 05:22:49 by romachad         ###   ########.fr       */
+/*   Updated: 2022/11/03 20:30:36 by romachad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,10 @@ void	main_fractal(t_fractol *f)
 {
 	if (f->fractol == 'm')
 		f->win = mlx_new_window(f->mlx, WIDTH, HEIGHT, "Mandelbrot");
-	else
+	else if (f->fractol == 'j')
 		f->win = mlx_new_window(f->mlx, WIDTH, HEIGHT, "Julia");
+	else
+		f->win = mlx_new_window(f->mlx, WIDTH, HEIGHT, "Newton");
 	f->img = mlx_new_image(f->mlx, WIDTH, HEIGHT);
 	f->addr = mlx_get_data_addr(f->img, &f->bits_per_pixel, \
 			&f->line_length, &f->endian);
@@ -58,7 +60,7 @@ int	main(int argc, char **argv)
 		message();
 		exit(0);
 	}
-	if (argv[1][0] == 'm' || argv[1][0] == 'j')
+	if (argv[1][0] == 'm' || argv[1][0] == 'j' || argv[1][0] == 'n')
 	{
 		f.fractol = argv[1][0];
 		if (f.fractol == 'm')

@@ -6,12 +6,12 @@
 /*   By: romachad <romachad@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 07:33:17 by romachad          #+#    #+#             */
-/*   Updated: 2022/11/02 05:29:56 by romachad         ###   ########.fr       */
+/*   Updated: 2022/11/03 02:00:44 by romachad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/fractol.h"
-
+#include <stdio.h>
 void	draw_fractal(t_fractol *f)
 {
 	f->y = -1;
@@ -27,14 +27,22 @@ void	draw_fractal(t_fractol *f)
 				f->ci = f->min_i + (((double)f->y * \
 							(f->max_i - f->min_i)) / HEIGHT);
 			}
-			else if (f->fractol == 'j')
+			else if (f->fractol == 'j' || f->fractol == 'n')
 			{
 				f->zr = f->min_r + (((double)f->x * \
 							(f->max_r - f->min_r)) / WIDTH);
 				f->zi = f->min_i + (((double)f->y * \
 							(f->max_i - f->min_i)) / HEIGHT);
 			}
-			fractal(f);
+			if (f->fractol == 'n')
+			{
+				newton(f);
+			}
+			else
+			{
+				printf("OTHERS\n");
+				fractal(f);
+			}
 		}
 	}
 	mlx_put_image_to_window(f->mlx, f->win, f->img, 0, 0);

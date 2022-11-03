@@ -1,8 +1,8 @@
 NAME = fractol
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
-XFLAGS = -lbsd -lmlx -lXext -lX11
-SRCS_FILES = main error fractal hooks movement zoom ft_atof
+XFLAGS = -lbsd -lmlx -lXext -lX11 -lm
+SRCS_FILES = main error fractal hooks movement zoom ft_atof newton
 HEADERS_FILES = fractol buttons ft_printf
 SRCS = $(addprefix $(SRCS_DIR), $(addsuffix .c, $(SRCS_FILES)))
 OBJS = $(addprefix $(OBJS_DIR), $(addsuffix .o, $(SRCS_FILES)))
