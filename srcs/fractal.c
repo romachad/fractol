@@ -6,12 +6,12 @@
 /*   By: romachad <romachad@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 07:33:17 by romachad          #+#    #+#             */
-/*   Updated: 2022/11/03 02:00:44 by romachad         ###   ########.fr       */
+/*   Updated: 2022/11/03 20:33:19 by romachad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/fractol.h"
-#include <stdio.h>
+
 void	draw_fractal(t_fractol *f)
 {
 	f->y = -1;
@@ -40,7 +40,6 @@ void	draw_fractal(t_fractol *f)
 			}
 			else
 			{
-				printf("OTHERS\n");
 				fractal(f);
 			}
 		}
