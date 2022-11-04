@@ -6,7 +6,7 @@
 /*   By: romachad <romachad@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 23:46:14 by romachad          #+#    #+#             */
-/*   Updated: 2022/10/25 23:20:17 by coret            ###   ########.fr       */
+/*   Updated: 2022/11/03 22:09:59 by romachad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,6 @@
 # define SCROLL_BW	05
 # define DESTROY_EVENT	17
 # define ENTER_EVENT	07
+# define R_CLICK	01
 
 #endif

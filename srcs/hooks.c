@@ -6,7 +6,7 @@
 /*   By: romachad <romachad@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 00:08:48 by romachad          #+#    #+#             */
-/*   Updated: 2022/11/02 05:34:26 by romachad         ###   ########.fr       */
+/*   Updated: 2022/11/04 00:29:34 by romachad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 
 int	key_hook(int keycode, t_fractol *f)
 {
-	ft_printf("Key pressed: %i\n", keycode);
 	if (keycode == LEFT)
 		left(f);
 	if (keycode == RIGHT)
@@ -38,17 +37,24 @@ int	key_hook(int keycode, t_fractol *f)
 
 int	mouse_hook(int mousecode, int x, int y, t_fractol *f)
 {
-	ft_printf("Mouse pressed: %i ; x=%i y=%i\n", mousecode, x, y);
+	if (x < 0 || x > WIDTH)
+		return (0);
+	if (y < 0 || y > HEIGHT)
+		return (0);
 	if (mousecode == SCROLL_FW)
+	{
+		f->is_zoom = 1;
+		center(x, y, f);
 		increase_zoom(f);
+	}
 	if (mousecode == SCROLL_BW)
+	{
+		f->is_zoom = 1;
+		center(x, y, f);
 		decrease_zoom(f);
-	return (0);
-}
-
-int	mouse_move(int x, int y)
-{
-	ft_printf("Mouse coord: X=%i\tY=%i\n", x, y);
+	}
+	if (mousecode == R_CLICK)
+		center(x, y, f);
 	return (0);
 }
 

@@ -6,30 +6,12 @@
 /*   By: romachad <romachad@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 07:44:33 by romachad          #+#    #+#             */
-/*   Updated: 2022/11/03 20:30:36 by romachad         ###   ########.fr       */
+/*   Updated: 2022/11/04 00:14:11 by romachad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/fractol.h"
 #include "../headers/ft_printf.h"
-
-void	set_mandelbrot(t_fractol *f)
-{
-	f->mlx = mlx_init();
-	f->min_r = -2;
-	f->max_r = 1;
-	f->min_i = -1.5;
-	f->max_i = f->min_i + (f->max_r - f->min_r) * (HEIGHT / WIDTH);
-}
-
-void	set_julia(t_fractol *f)
-{
-	f->mlx = mlx_init();
-	f->min_r = -1.5;
-	f->max_r = 1.5;
-	f->min_i = -1.5;
-	f->max_i = f->min_i + (f->max_r - f->min_r) * (HEIGHT / WIDTH);
-}
 
 void	main_fractal(t_fractol *f)
 {
@@ -45,7 +27,6 @@ void	main_fractal(t_fractol *f)
 	reset(f);
 	mlx_key_hook(f->win, key_hook, f);
 	mlx_mouse_hook(f->win, mouse_hook, f);
-	mlx_hook(f->win, 6, 1L << 6, mouse_move, f);
 	mlx_hook(f->win, 17, 0, quit, f);
 	mlx_expose_hook(f->win, expose, f);
 	mlx_loop(f->mlx);
@@ -63,14 +44,12 @@ int	main(int argc, char **argv)
 	if (argv[1][0] == 'm' || argv[1][0] == 'j' || argv[1][0] == 'n')
 	{
 		f.fractol = argv[1][0];
-		if (f.fractol == 'm')
-			set_mandelbrot(&f);
-		else
+		if (f.fractol == 'j')
 		{
 			f.cr = ft_atof(argv[2]);
 			f.ci = ft_atof(argv[3]);
-			set_julia(&f);
 		}
+		f.mlx = mlx_init();
 		main_fractal(&f);
 	}
 	else

@@ -6,7 +6,7 @@
 /*   By: romachad <romachad@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 07:04:31 by romachad          #+#    #+#             */
-/*   Updated: 2022/11/03 20:10:08 by romachad         ###   ########.fr       */
+/*   Updated: 2022/11/04 00:15:09 by romachad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ typedef struct s_fractol
 	double	ci;
 	char	fractol;
 	int		n;
+	int		z_lvl;
+	char		is_zoom;
 }	t_fractol;
 
 void	fractal(t_fractol *f);
@@ -56,7 +58,6 @@ void	my_mlx_pixel_put(t_fractol *data, int color);
 void	my_mlx_pixel_put_newton(t_fractol *data, int color);
 int		key_hook(int keycode, t_fractol *f);
 int		mouse_hook(int mousecode, int x, int y, t_fractol *f);
-int		mouse_move(int x, int y);
 void	draw_fractal(t_fractol *f);
 int		render_next_frame(t_fractol *f);
 int		quit(t_fractol *f);
@@ -70,5 +71,6 @@ void	reset(t_fractol *f);
 double	ft_atof(const char *str);
 int		expose(t_fractol *f);
 void	message(void);
+void	center(int x, int y, t_fractol *f);
 
 #endif
