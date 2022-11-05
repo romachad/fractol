@@ -17,7 +17,7 @@ void	newton(t_fractol *f)
 	double	denominator;
 
 	f->n = -1;
-	while (++f->n < 80)
+	while (++f->n < 70)
 	{
 		denominator = 3 * (((f->zr * f->zr) + (f->zi * f->zi)) * ((f->zr * f->zr) + (f->zi * f->zi)));
 		tmpi = (2 * f->zi * f->zi * f->zi * f->zi * f->zi) - (2 * f->zr * f->zi) + (4 * f->zr * f->zr * f->zi * f->zi * f->zi) + (2 * f->zr * f->zr * f->zr * f->zr * f->zi);

@@ -6,7 +6,7 @@
 /*   By: romachad <romachad@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 07:33:17 by romachad          #+#    #+#             */
-/*   Updated: 2022/11/03 20:33:19 by romachad         ###   ########.fr       */
+/*   Updated: 2022/11/05 00:01:46 by romachad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,23 +52,22 @@ void	my_mlx_pixel_put(t_fractol *f, int color)
 	char	*dst;
 
 	dst = f->addr + (f->y * f->line_length + f->x * (f-> bits_per_pixel / 8));
-	if (f->n > 10 && f->n < MAX_ITER)
-	{
-		if (f->n > 10 && f->n <= 20)
-			color = 0xCCFFCC;
-		if (f->n > 20 && f->n <= 30)
-			color = 0x99FFCC;
-		if (f->n > 30 && f->n <= 40)
-			color = 0x66FFFF;
-		if (f->n > 40 && f->n <= 50)
-			color = 0x3399FF;
-		if (f->n > 50 && f->n <= 60)
-			color = 0x0000FF;
-		if (f->n > 60 && f->n <= 70)
-			color = 0x6600CC;
-		if (f->n > 70 && f->n <= 80)
-			color = 0x990099;
-	}
+	if (f->n <= 10)
+		color = first_color(f);
+	if (f->n > 10 && f->n <= 20)
+		color = second_color(f);
+	if (f->n > 20 && f->n <= 30)
+		color = third_color(f);
+	if (f->n > 30 && f->n <= 40)
+		color = fourth_color(f);
+	if (f->n > 40 && f->n <= 50)
+		color = fifth_color(f);
+	if (f->n > 50 && f->n <= 60)
+		color = sixth_color(f);
+	if (f->n > 60 && f->n <= 70)
+		color = seventh_color(f);
+	if (f->n > 70 && f->n < 80)
+		color = eighth_color(f);
 	*(unsigned int *)dst = color;
 }
 
@@ -91,5 +90,5 @@ void	fractal(t_fractol *f)
 	if (f->n == MAX_ITER)
 		my_mlx_pixel_put(f, 0x00000000);
 	else
-		my_mlx_pixel_put(f, 0x00FFFFFF);
+		my_mlx_pixel_put(f, 0x000000FF);
 }

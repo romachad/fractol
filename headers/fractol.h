@@ -6,7 +6,7 @@
 /*   By: romachad <romachad@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 07:04:31 by romachad          #+#    #+#             */
-/*   Updated: 2022/11/04 00:15:09 by romachad         ###   ########.fr       */
+/*   Updated: 2022/11/05 00:03:16 by romachad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include <mlx.h>
 # include <stdlib.h>
-# include <math.h>
 # define MAX_ITER 80
 # define WIDTH 800
 # define HEIGHT 800
@@ -72,5 +71,13 @@ double	ft_atof(const char *str);
 int		expose(t_fractol *f);
 void	message(void);
 void	center(int x, int y, t_fractol *f);
+int		first_color(t_fractol *f);
+int		second_color(t_fractol *f);
+int		third_color(t_fractol *f);
+int		fourth_color(t_fractol *f);
+int		fifth_color(t_fractol *f);
+int		sixth_color(t_fractol *f);
+int		seventh_color(t_fractol *f);
+int		eighth_color(t_fractol *f);
 
 #endif

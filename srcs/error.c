@@ -6,7 +6,7 @@
 /*   By: romachad <romachad@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 23:20:41 by romachad          #+#    #+#             */
-/*   Updated: 2022/11/02 05:02:48 by romachad         ###   ########.fr       */
+/*   Updated: 2022/11/04 23:41:40 by romachad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,4 +35,5 @@ void	message(void)
 	ft_printf("\nBelow are some examples for the Julia set:\n");
 	ft_printf("./fractol j 0 0.8\n./fractol j 0.355534 -0.337292\n");
 	ft_printf("./fractol j 0.3125 0.566176471\n");
+	ft_printf("./fractol j -.7724661 -.1034245\n");
 }
