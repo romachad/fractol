@@ -6,7 +6,7 @@
 /*   By: romachad <romachad@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 05:15:48 by romachad          #+#    #+#             */
-/*   Updated: 2022/11/04 00:16:48 by romachad         ###   ########.fr       */
+/*   Updated: 2022/11/05 18:59:01 by romachad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,5 +66,6 @@ void	reset(t_fractol *f)
 		f->min_i = -3;
 		f->max_i = f->min_i + (f->max_r - f->min_r) * (HEIGHT / WIDTH);
 	}
+	ft_printf("Zoom level: %d\n", f->z_lvl);
 	draw_fractal(f);
 }

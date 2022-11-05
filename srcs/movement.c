@@ -6,7 +6,7 @@
 /*   By: romachad <romachad@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 05:15:28 by romachad          #+#    #+#             */
-/*   Updated: 2022/11/04 00:25:35 by romachad         ###   ########.fr       */
+/*   Updated: 2022/11/05 18:15:16 by romachad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,10 @@ void	center(int x, int y, t_fractol *f)
 
 	dist_r = (((double)x * (f->max_r - f->min_r)) / WIDTH);
 	dist_i = (((double)y * (f->max_i - f->min_i)) / HEIGHT);
-	dist_r = dist_r - ((f->max_r - f->min_r)/2);
+	dist_r = dist_r - ((f->max_r - f->min_r) / 2);
 	f->min_r += dist_r;
 	f->max_r += dist_r;
-	dist_i = dist_i - ((f->max_i - f->min_i)/2);
+	dist_i = dist_i - ((f->max_i - f->min_i) / 2);
 	f->min_i += dist_i;
 	f->max_i += dist_i;
 	if (!f->is_zoom)

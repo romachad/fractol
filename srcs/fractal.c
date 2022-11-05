@@ -6,7 +6,7 @@
 /*   By: romachad <romachad@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 07:33:17 by romachad          #+#    #+#             */
-/*   Updated: 2022/11/05 00:01:46 by romachad         ###   ########.fr       */
+/*   Updated: 2022/11/05 18:34:28 by romachad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,28 +20,14 @@ void	draw_fractal(t_fractol *f)
 		f->x = -1;
 		while (++f->x < WIDTH)
 		{
-			if (f->fractol == 'm')
-			{
-				f->cr = f->min_r + (((double)f->x * \
-							(f->max_r - f->min_r)) / WIDTH);
-				f->ci = f->min_i + (((double)f->y * \
-							(f->max_i - f->min_i)) / HEIGHT);
-			}
-			else if (f->fractol == 'j' || f->fractol == 'n')
-			{
-				f->zr = f->min_r + (((double)f->x * \
-							(f->max_r - f->min_r)) / WIDTH);
-				f->zi = f->min_i + (((double)f->y * \
-							(f->max_i - f->min_i)) / HEIGHT);
-			}
+			f->zr = f->min_r + (((double)f->x * \
+						(f->max_r - f->min_r)) / WIDTH);
+			f->zi = f->min_i + (((double)f->y * \
+						(f->max_i - f->min_i)) / HEIGHT);
 			if (f->fractol == 'n')
-			{
 				newton(f);
-			}
 			else
-			{
 				fractal(f);
-			}
 		}
 	}
 	mlx_put_image_to_window(f->mlx, f->win, f->img, 0, 0);
@@ -75,6 +61,8 @@ void	fractal(t_fractol *f)
 {
 	if (f->fractol == 'm')
 	{
+		f->cr = f->zr;
+		f->ci = f->zi;
 		f->zr = 0;
 		f->zi = 0;
 	}

@@ -6,7 +6,7 @@
 /*   By: romachad <romachad@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 07:04:31 by romachad          #+#    #+#             */
-/*   Updated: 2022/11/05 00:03:16 by romachad         ###   ########.fr       */
+/*   Updated: 2022/11/05 18:14:37 by romachad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ typedef struct s_fractol
 	char	fractol;
 	int		n;
 	int		z_lvl;
-	char		is_zoom;
+	char	is_zoom;
 }	t_fractol;
 
 void	fractal(t_fractol *f);

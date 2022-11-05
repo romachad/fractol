@@ -6,10 +6,9 @@
 /*   By: romachad <romachad@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 05:13:46 by romachad          #+#    #+#             */
-/*   Updated: 2022/11/02 13:48:03 by romachad         ###   ########.fr       */
+/*   Updated: 2022/11/05 18:11:11 by romachad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 static char	*skip_spaces(const char *str)
 {
