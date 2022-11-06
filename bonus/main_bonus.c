@@ -6,7 +6,7 @@
 /*   By: romachad <romachad@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 07:44:33 by romachad          #+#    #+#             */
-/*   Updated: 2022/11/05 21:35:49 by romachad         ###   ########.fr       */
+/*   Updated: 2022/11/04 00:14:11 by romachad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	main(int argc, char **argv)
 		message();
 		exit(0);
 	}
-	if (argv[1][0] == 'm' || argv[1][0] == 'j')
+	if (argv[1][0] == 'm' || argv[1][0] == 'j' || argv[1][0] == 'n')
 	{
 		f.fractol = argv[1][0];
 		if (f.fractol == 'j')

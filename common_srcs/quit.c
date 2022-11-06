@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   quit.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: romachad <romachad@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 23:20:41 by romachad          #+#    #+#             */
-/*   Updated: 2022/11/04 23:41:40 by romachad         ###   ########.fr       */
+/*   Updated: 2022/11/05 21:32:32 by romachad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	quit(t_fractol *f)
 void	message(void)
 {
 	ft_printf("Invalid option(s)! Please use the arguments as shown below:\n\
-		1- m for Mandelbrot or j for Julia\n\
+		1- m for Mandelbrot, j for Julia or n for Newton (bonus only)\n\
 		2- A value for the Real number (e.g.: -0.54) --Valid only for Julia Fractol\n\
 		3- A value for the Imaginary number (e.g.: 0.54) --Valid");
 	ft_printf(" only for Julia Fractol\n");

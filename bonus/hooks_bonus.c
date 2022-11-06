@@ -6,7 +6,7 @@
 /*   By: romachad <romachad@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 00:08:48 by romachad          #+#    #+#             */
-/*   Updated: 2022/11/05 22:05:02 by romachad         ###   ########.fr       */
+/*   Updated: 2022/11/04 00:29:34 by romachad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,14 @@
 
 int	key_hook(int keycode, t_fractol *f)
 {
+	if (keycode == LEFT)
+		left(f);
+	if (keycode == RIGHT)
+		right(f);
+	if (keycode == UP)
+		up(f);
+	if (keycode == DOWN)
+		down(f);
 	if (keycode == PLUS_KEY)
 		increase_zoom(f);
 	if (keycode == MINUS_KEY)
@@ -34,9 +42,17 @@ int	mouse_hook(int mousecode, int x, int y, t_fractol *f)
 	if (y < 0 || y > HEIGHT)
 		return (0);
 	if (mousecode == SCROLL_FW)
+	{
+		f->is_zoom = 1;
+		center(x, y, f);
 		increase_zoom(f);
+	}
 	if (mousecode == SCROLL_BW)
+	{
+		f->is_zoom = 1;
+		center(x, y, f);
 		decrease_zoom(f);
+	}
 	if (mousecode == R_CLICK)
 		center(x, y, f);
 	return (0);

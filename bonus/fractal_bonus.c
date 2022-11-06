@@ -6,7 +6,7 @@
 /*   By: romachad <romachad@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 07:33:17 by romachad          #+#    #+#             */
-/*   Updated: 2022/11/05 21:30:00 by romachad         ###   ########.fr       */
+/*   Updated: 2022/11/05 18:34:28 by romachad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,10 @@ void	draw_fractal(t_fractol *f)
 						(f->max_r - f->min_r)) / WIDTH);
 			f->zi = f->min_i + (((double)f->y * \
 						(f->max_i - f->min_i)) / HEIGHT);
-			fractal(f);
+			if (f->fractol == 'n')
+				newton(f);
+			else
+				fractal(f);
 		}
 	}
 	mlx_put_image_to_window(f->mlx, f->win, f->img, 0, 0);
