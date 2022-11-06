@@ -1,16 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   newton.c                                           :+:      :+:    :+:   */
+/*   newton_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: romachad <romachad@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 18:11:29 by romachad          #+#    #+#             */
-/*   Updated: 2022/11/05 19:58:27 by romachad         ###   ########.fr       */
+/*   Updated: 2022/11/06 06:01:57 by romachad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/fractol.h"
+
+/*---------------------------------------------------------------------\
+ * The formula for the Newton fractal is:
+ * 
+ * Zn+1 = Zn - ( (Zn^3 - 1) / (3 * (Zn^2)))
+ * 
+ * Applying the same denominator to Zn we get:
+ *
+ * Zn+1 = (2 * (Zn^3) + 1) / (3 * (Zn^2))
+ *
+ * Knowing that Zn is a + bi, we can expand the Zn value,
+ * then multiply the numerator and denominator
+ * by the complex conjugate of the denominator.
+ * Doing so will remove the i component of the denominator
+ * and now we can easily separate the real number from the imaginary.
+ * We get the following values:
+ * 
+ * Denominator = 3 * ((a^2 + b^2)^2)
+ * Real = (2 * a^5) + (a^2) - (b^2) + (4 * a^3 * b^2) + (2 * a * b^4)
+ * Imaginary = (2 * b^5) - (2 * a * b) + (4 * a^2 * b^3) + (2 * a^4 * b)
+ *
+ * Those are the formulas applied in this code.
+ *--------------------------------------------------------------------*/
 
 void	my_mlx_pixel_put_newton(t_fractol *f, int color)
 {
